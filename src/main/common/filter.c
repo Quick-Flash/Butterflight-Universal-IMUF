@@ -223,9 +223,9 @@ void laggedMovingAverageInit(laggedMovingAverage_t *filter, uint16_t windowSize,
 // Proper fast two-state Kalman
 void fastKalmanInit(fastKalman_t *filter, float q, uint32_t w, int axis, float updateRate)
 {
-    if ( w > 64)
+    if ( w > 512)
     {
-    	w = 64;
+    	w = 512;
     }
 
     memset(filter, 0, sizeof(fastKalman_t));

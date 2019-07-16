@@ -397,7 +397,7 @@ static OSD_Entry cmsx_menuFilterGlobalEntries[] =
     { "GYRO NF2C",  OME_UINT16, NULL, &(OSD_UINT16_t) { &gyroConfig_gyro_soft_notch_cutoff_2, 0, 500, 1 }, 0 },
     #ifndef USE_GYRO_IMUF9001
     { "KALMAN Q",   OME_UINT16, NULL, &(OSD_UINT16_t) { &gyroConfig_gyro_filter_q,            0, 16000, 1 }, 0 },
-    { "KALMAN W",   OME_UINT16, NULL, &(OSD_UINT16_t) { &gyroConfig_gyro_filter_w,            3, 64, 1 }, 0 },
+    { "KALMAN W",   OME_UINT16, NULL, &(OSD_UINT16_t) { &gyroConfig_gyro_filter_w,            3, 512, 1 }, 0 },
     #endif
     { "BACK", OME_Back, NULL, NULL, 0 },
     { NULL, OME_END, NULL, NULL, 0 }
@@ -441,7 +441,7 @@ static long cmsx_menuImuf_onEnter(void)
     gyroConfig_imuf_roll_lpf_cutoff_hz = gyroConfig()->imuf_roll_lpf_cutoff_hz;
     gyroConfig_imuf_yaw_lpf_cutoff_hz = gyroConfig()->imuf_yaw_lpf_cutoff_hz;
     gyroConfig_imuf_acc_lpf_cutoff_hz = gyroConfig()->imuf_acc_lpf_cutoff_hz;
-    
+
     return 0;
 }
 #endif
@@ -476,7 +476,7 @@ static OSD_Entry cmsx_menuImufEntries[] =
     { "PITCH LPF", OME_UINT16, NULL, &(OSD_UINT16_t) { &gyroConfig_imuf_pitch_lpf_cutoff_hz, 0, 450,    1 }, 0 },
     { "YAW LPF",   OME_UINT16, NULL, &(OSD_UINT16_t) { &gyroConfig_imuf_yaw_lpf_cutoff_hz,   0, 450,    1 }, 0 },
     { "IMUF ACC",  OME_UINT16, NULL, &(OSD_UINT16_t) { &gyroConfig_imuf_acc_lpf_cutoff_hz,   0, 450,    1 }, 0 },
-    
+
 	{ "BACK",        OME_Back,            NULL,   NULL,             0},
     { "SAVE&REBOOT", OME_OSD_Exit, cmsMenuExit,   (void *)CMS_EXIT_SAVEREBOOT, 0},
     { NULL, OME_END, NULL, NULL, 0 }
